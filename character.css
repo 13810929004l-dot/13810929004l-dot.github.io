@@ -1,0 +1,42 @@
+/* 基础与页面背景 */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: "PingFang SC","Microsoft YaHei",Arial,sans-serif;
+  background: #fff;                 /* 白底，更像海报/贺卡页 */
+  color: #111;
+  overflow-x: hidden;
+}
+
+/* 固定在左上角的返回按钮 */
+.back-btn{
+  position: fixed;
+  left: 10px;
+  top: 10px;
+  z-index: 20;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.15);
+  background: rgba(255,255,255,0.85);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  transition: transform .18s ease, background .18s ease;
+}
+.back-btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,0.95); }
+
+/* 主体容器：给出顶部内边距避免按钮遮挡 */
+.card-wrap{
+  padding-top: 56px;     /* 留出按钮高度 */
+  padding-bottom: 16px;
+}
+
+/* 贺卡图：等比、整页宽 */
+.card-img{
+  display: block;
+  width: 100%;
+  height: auto;          /* 不裁切，等比缩放 */
+  max-width: none;
+}

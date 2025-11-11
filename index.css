@@ -1,0 +1,81 @@
+/* 你的设计画布尺寸（如不是 1920x1080，改这里） */
+:root{
+  --design-w: 1920;
+  --design-h: 1080;
+}
+
+/* 背景 */
+*{ box-sizing:border-box; margin:0; padding:0; }
+html,body{ height:100%; }
+.page-bg{
+  position:fixed; inset:0;
+  background: linear-gradient(180deg,#bafcff 0%,#ffffff 100%);
+  z-index:0;
+}
+
+/* 画布容器：等比缩放，居中 */
+.artboard{
+  position:fixed; left:50%; top:50%;
+  transform:translate(-50%,-50%);
+  width:min(100vw, calc(100vh * (var(--design-w)/var(--design-h))));
+  aspect-ratio: calc(var(--design-w)/var(--design-h));
+  height:auto;
+  z-index:5;
+}
+
+/* ===== 图片层：100% 叠放在同一画布上，不被裁切 ===== */
+.layer{
+  position:absolute; left:0; top:0;
+  width:100%; height:100%;
+  object-fit:contain;
+  user-select:none; pointer-events:none;
+}
+/* 层级（谁在上面就大一点） */
+.img-board     { z-index:1; }
+.img-calendar  { z-index:2; }
+.img-ramen     { z-index:3; }   /* 拉面在日历上 */
+
+.img-gift      { z-index:4; }
+.img-character { z-index:5; } /* 人物最上 */
+
+/* 悬停时给目标图片加的样式（由 JS 加类） */
+.layer.hovering{
+  transform: scale(1.06);
+  filter: drop-shadow(0 0.6vw 1.2vw rgba(0,0,0,.15));
+  transition: transform .22s ease, filter .22s ease;
+}
+
+/* ===== 透明点击热区，只裁自己，不含图片，不会切图片 ===== */
+.hotspot{
+  position:absolute; left:0; top:0;
+  width:100%; height:100%;
+  display:block;
+  z-index:10;
+  /* 让整个热区透明可点 */
+  background: transparent;
+}
+
+/* 用 clip-path 限定各自的点击形状（百分比基于整块画布） */
+.hs-calendar{
+  clip-path: polygon(6% 38%, 30% 26%, 56% 18%, 63% 36%, 69% 56%, 45% 67%, 18% 80%, 10% 63%);
+}
+.hs-gift{
+  clip-path: polygon(54% 72%, 66% 72%, 70% 83%, 60% 90%, 48% 88%, 46% 78%);
+}
+.hs-ramen{
+  clip-path: polygon(6% 78%, 16% 74%, 22% 78%, 22% 90%, 10% 92%, 4% 86%);
+}
+.hs-character{
+  clip-path: polygon(58% 8%, 100% 8%, 100% 100%, 52% 100%);
+}
+
+/* 移动端放大稍弱 */
+@media (max-width:600px){
+  .layer.hovering{ transform: scale(1.04); }
+}
+
+.layer.hovering {
+  transform: scale(1.06);
+  filter: drop-shadow(0 0.6vw 1.2vw rgba(0,0,0,.15));
+  transition: transform .22s ease, filter .22s ease;
+}

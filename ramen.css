@@ -1,0 +1,46 @@
+/* 全局基础 */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; width: 100%; }
+
+body {
+  background: #fff;  /* 白色背景衬图 */
+  font-family: "PingFang SC","Microsoft YaHei",sans-serif;
+  overflow-x: hidden;
+}
+
+/* 返回按钮 */
+.back-btn {
+  position: fixed;
+  left: 10px;
+  top: 10px;
+  z-index: 10;
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+  backdrop-filter: blur(6px);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.back-btn:hover {
+  background: rgba(255,255,255,0.95);
+  transform: translateY(-1px);
+}
+
+/* 图片部分：完整展示竖图，可滚动 */
+.ramen-wrap {
+  padding-top: 60px;    /* 避开返回按钮 */
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.ramen-img {
+  width: 100%;          /* 占满页面宽度 */
+  height: auto;         /* 等比缩放 */
+  display: block;
+  max-width: none;      /* 不限制宽度 */
+}

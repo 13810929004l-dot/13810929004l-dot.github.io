@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Birthday 🎂</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <!-- 背景渐变 -->
+  <div class="page-bg"></div>
+
+  <!-- 主画布 -->
+  <div class="artboard" id="artboard">
+
+    <!-- ========= 图层区域（不会被裁切） ========= -->
+    <!-- 背景板 -->
+    <img src="assets/images/board.png" alt="背景板" class="layer img-board" />
+
+    <!-- 日历 -->
+    <img src="assets/images/calendar.png" alt="日历" class="layer img-calendar" />
+
+    <!-- 拉面 -->
+    <img src="assets/images/ramen.png" alt="拉面" class="layer img-ramen" />
+
+    <!-- 礼物 -->
+    <img src="assets/images/gift.png" alt="礼物" class="layer img-gift" />
+
+    <!-- 人物 -->
+    <img src="assets/images/character.png" alt="人物" class="layer img-character" />
+
+    <!-- ========= 透明点击热区（只检测点击，不显示） ========= -->
+    <!-- 每个热区 data-target 指向要放大的那一张图 -->
+    <a href="calendar.html"  class="hotspot hs-calendar"  data-target=".img-calendar"  aria-label="日历"></a>
+    <a href="gift.html"      class="hotspot hs-gift"      data-target=".img-gift"      aria-label="礼物"></a>
+    <a href="ramen.html"     class="hotspot hs-ramen"     data-target=".img-ramen"     aria-label="拉面"></a>
+    <a href="character.html" class="hotspot hs-character" data-target=".img-character" aria-label="人物"></a>
+  </div>
+
+  <!-- JS 脚本 -->
+  <script src="index.js"></script>
+</body>
+</html>

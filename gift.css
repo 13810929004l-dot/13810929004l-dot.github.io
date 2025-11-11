@@ -1,0 +1,42 @@
+/* 基础 */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: "PingFang SC","Microsoft YaHei",sans-serif;
+  background: linear-gradient(180deg, #000000 0%, #002FA7 100%); /* 黑→克莱因蓝 */
+  color: #E8EEF7;
+}
+
+/* 固定的返回按钮（顶部/底部各一个） */
+.back {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  text-decoration: none;
+  color: #E8EEF7;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.22);
+  padding: 8px 14px;
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+  transition: transform .18s ease, background .18s ease;
+  pointer-events: auto;
+}
+.back-top    { top: 8px; }
+.back-bottom { bottom: 8px; }
+.back:hover  { transform: translateX(-50%) translateY(-1px); background: rgba(255,255,255,0.16); }
+
+/* 主体内容：给足上下内边距，避免图片被固定按钮遮住 */
+.gift-wrap {
+  padding-top: 48px;   /* 顶部按钮高度 + 间距 */
+  padding-bottom: 56px;/* 底部按钮高度 + 间距 */
+}
+
+/* 竖图完整显示，不裁切，从页面顶部开始 */
+.gift-img {
+  width: 100%;
+  height: auto;      /* 保持原比例 */
+  display: block;
+  max-width: none;   /* 不限制宽度 */
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>生日贺卡</title>
+  <link rel="stylesheet" href="character.css" />
+</head>
+<body>
+  <!-- 固定返回按钮（历史返回；无历史时回首页） -->
+  <button class="back-btn" onclick="(history.length>1)?history.back():location.href='index.html'">
+    ← 返回上一页
+  </button>
+
+  <!-- 主体：整页仅显示贺卡图，完整占据页面宽度 -->
+  <main class="card-wrap">
+    <img src="assets/images/生日贺卡.jpg" alt="生日贺卡" class="card-img" />
+  </main>
+</body>
+</html>
